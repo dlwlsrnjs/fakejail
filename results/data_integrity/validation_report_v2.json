@@ -1,0 +1,39 @@
+{
+  "schema": "jailnews_bandit_asset_validation/v1",
+  "passed": true,
+  "catalog_counts": {
+    "contexts": 4091,
+    "people": 462,
+    "arms": 360,
+    "languages": 72,
+    "methods": 5,
+    "concept_translations": 303480,
+    "concepts": 4215,
+    "translation_pairs": 303480
+  },
+  "translation_status_counts": {
+    "provisional_auto": 193373,
+    "rejected_local_qwen32": 34950,
+    "verified_local_qwen32": 39186,
+    "verified_luna": 35971
+  },
+  "person_localizations": {
+    "present": true,
+    "rows": 36072,
+    "unique_pairs": 36072,
+    "status_counts": {
+      "fallback_original": 19528,
+      "verified_localized": 15752,
+      "unresolved": 792
+    }
+  },
+  "prior": {
+    "present": false
+  },
+  "errors": [],
+  "entity_labels": 501,
+  "expected_deduplicated_entities": 462,
+  "translation_usability_conflicts": 0,
+  "contexts_without_entity_id": 0,
+  "quality_gate_note": "Unresolved entity links and rejected translations remain explicitly unusable."
+}

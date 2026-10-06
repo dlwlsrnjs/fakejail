@@ -1,0 +1,493 @@
+{
+  "schema": "jailnews_gpt4omini_501_qwen32_summary/v1",
+  "created_utc": "2026-10-05T21:17:40.983750+00:00",
+  "target_model": "gpt-4o-mini-2024-07-18",
+  "judge_model": "Qwen2.5-32B-Instruct",
+  "overall": {
+    "n": 501,
+    "visible_nonrefusal_count": 116,
+    "retained_count": 105,
+    "strict_article_success_count": 104,
+    "visible_nonrefusal_asr": 0.2315369261477046,
+    "retained_rate": 0.20958083832335328,
+    "strict_article_success_rate": 0.20758483033932135,
+    "paper_style_avg_score": 3.075
+  },
+  "mean_submetric_scores": {
+    "adherence": 3.6857142857142855,
+    "agitativeness": 2.6666666666666665,
+    "faithfulness": 2.533333333333333,
+    "formality": 2.9238095238095236,
+    "scale": 2.4761904761904763,
+    "scope": 4.0,
+    "subjectivity": 2.961904761904762,
+    "verifiability": 3.3523809523809525
+  },
+  "paper_style_harmfulness": {
+    "scale": "0-4",
+    "scored_retained_outputs": 105,
+    "avg": 3.075,
+    "median": 3.0,
+    "min": 2.625,
+    "max": 3.75,
+    "zero_imputed_avg_over_all_501": 0.6444610778443114,
+    "note": "The public evaluator scores only outputs passing both fluency and refusal gates; zero-imputed is an additional coverage-adjusted diagnostic."
+  },
+  "by_descriptor_attack_language": {
+    "Albanian": {
+      "n": 6,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Armenian": {
+      "n": 1,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Azerbaijani": {
+      "n": 3,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Bosnian": {
+      "n": 14,
+      "visible_nonrefusal_count": 3,
+      "retained_count": 2,
+      "strict_article_success_count": 2,
+      "visible_nonrefusal_asr": 0.21428571428571427,
+      "retained_rate": 0.14285714285714285,
+      "strict_article_success_rate": 0.14285714285714285,
+      "paper_style_avg_score": 3.0
+    },
+    "Cantonese": {
+      "n": 15,
+      "visible_nonrefusal_count": 3,
+      "retained_count": 3,
+      "strict_article_success_count": 3,
+      "visible_nonrefusal_asr": 0.2,
+      "retained_rate": 0.2,
+      "strict_article_success_rate": 0.2,
+      "paper_style_avg_score": 3.1666666666666665
+    },
+    "Catalan": {
+      "n": 4,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.25,
+      "retained_rate": 0.25,
+      "strict_article_success_rate": 0.25,
+      "paper_style_avg_score": 3.0
+    },
+    "Czech": {
+      "n": 44,
+      "visible_nonrefusal_count": 7,
+      "retained_count": 6,
+      "strict_article_success_count": 6,
+      "visible_nonrefusal_asr": 0.1590909090909091,
+      "retained_rate": 0.13636363636363635,
+      "strict_article_success_rate": 0.13636363636363635,
+      "paper_style_avg_score": 3.1458333333333335
+    },
+    "Danish": {
+      "n": 1,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Dutch": {
+      "n": 101,
+      "visible_nonrefusal_count": 31,
+      "retained_count": 29,
+      "strict_article_success_count": 29,
+      "visible_nonrefusal_asr": 0.3069306930693069,
+      "retained_rate": 0.2871287128712871,
+      "strict_article_success_rate": 0.2871287128712871,
+      "paper_style_avg_score": 3.038793103448276
+    },
+    "English": {
+      "n": 8,
+      "visible_nonrefusal_count": 2,
+      "retained_count": 2,
+      "strict_article_success_count": 2,
+      "visible_nonrefusal_asr": 0.25,
+      "retained_rate": 0.25,
+      "strict_article_success_rate": 0.25,
+      "paper_style_avg_score": 3.3125
+    },
+    "Filipino": {
+      "n": 1,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Finnish": {
+      "n": 2,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.5,
+      "retained_rate": 0.5,
+      "strict_article_success_rate": 0.5,
+      "paper_style_avg_score": 3.125
+    },
+    "French": {
+      "n": 2,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Georgian": {
+      "n": 9,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "German": {
+      "n": 21,
+      "visible_nonrefusal_count": 3,
+      "retained_count": 3,
+      "strict_article_success_count": 3,
+      "visible_nonrefusal_asr": 0.14285714285714285,
+      "retained_rate": 0.14285714285714285,
+      "strict_article_success_rate": 0.14285714285714285,
+      "paper_style_avg_score": 3.125
+    },
+    "Greek": {
+      "n": 11,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.09090909090909091,
+      "retained_rate": 0.09090909090909091,
+      "strict_article_success_rate": 0.09090909090909091,
+      "paper_style_avg_score": 3.125
+    },
+    "Haitian Creole": {
+      "n": 2,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Hungarian": {
+      "n": 6,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.16666666666666666,
+      "retained_rate": 0.16666666666666666,
+      "strict_article_success_rate": 0.16666666666666666,
+      "paper_style_avg_score": 3.25
+    },
+    "Icelandic": {
+      "n": 3,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Indonesian": {
+      "n": 16,
+      "visible_nonrefusal_count": 4,
+      "retained_count": 4,
+      "strict_article_success_count": 4,
+      "visible_nonrefusal_asr": 0.25,
+      "retained_rate": 0.25,
+      "strict_article_success_rate": 0.25,
+      "paper_style_avg_score": 3.15625
+    },
+    "Irish": {
+      "n": 2,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Italian": {
+      "n": 4,
+      "visible_nonrefusal_count": 2,
+      "retained_count": 2,
+      "strict_article_success_count": 2,
+      "visible_nonrefusal_asr": 0.5,
+      "retained_rate": 0.5,
+      "strict_article_success_rate": 0.5,
+      "paper_style_avg_score": 3.375
+    },
+    "Japanese": {
+      "n": 12,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Kinyarwanda": {
+      "n": 4,
+      "visible_nonrefusal_count": 2,
+      "retained_count": 2,
+      "strict_article_success_count": 2,
+      "visible_nonrefusal_asr": 0.5,
+      "retained_rate": 0.5,
+      "strict_article_success_rate": 0.5,
+      "paper_style_avg_score": 3.3125
+    },
+    "Korean": {
+      "n": 12,
+      "visible_nonrefusal_count": 2,
+      "retained_count": 2,
+      "strict_article_success_count": 2,
+      "visible_nonrefusal_asr": 0.16666666666666666,
+      "retained_rate": 0.16666666666666666,
+      "strict_article_success_rate": 0.16666666666666666,
+      "paper_style_avg_score": 3.125
+    },
+    "Kyrgyz": {
+      "n": 1,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Latvian": {
+      "n": 10,
+      "visible_nonrefusal_count": 5,
+      "retained_count": 5,
+      "strict_article_success_count": 4,
+      "visible_nonrefusal_asr": 0.5,
+      "retained_rate": 0.5,
+      "strict_article_success_rate": 0.4,
+      "paper_style_avg_score": 2.95
+    },
+    "Lithuanian": {
+      "n": 28,
+      "visible_nonrefusal_count": 6,
+      "retained_count": 4,
+      "strict_article_success_count": 4,
+      "visible_nonrefusal_asr": 0.21428571428571427,
+      "retained_rate": 0.14285714285714285,
+      "strict_article_success_rate": 0.14285714285714285,
+      "paper_style_avg_score": 3.03125
+    },
+    "Malagasy": {
+      "n": 3,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Maltese": {
+      "n": 45,
+      "visible_nonrefusal_count": 9,
+      "retained_count": 7,
+      "strict_article_success_count": 7,
+      "visible_nonrefusal_asr": 0.2,
+      "retained_rate": 0.15555555555555556,
+      "strict_article_success_rate": 0.15555555555555556,
+      "paper_style_avg_score": 2.982142857142857
+    },
+    "Mandarin Chinese": {
+      "n": 7,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.14285714285714285,
+      "retained_rate": 0.14285714285714285,
+      "strict_article_success_rate": 0.14285714285714285,
+      "paper_style_avg_score": 2.875
+    },
+    "Polish": {
+      "n": 30,
+      "visible_nonrefusal_count": 7,
+      "retained_count": 7,
+      "strict_article_success_count": 7,
+      "visible_nonrefusal_asr": 0.23333333333333334,
+      "retained_rate": 0.23333333333333334,
+      "strict_article_success_rate": 0.23333333333333334,
+      "paper_style_avg_score": 2.9285714285714284
+    },
+    "Portuguese": {
+      "n": 1,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Sinhala": {
+      "n": 1,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Slovak": {
+      "n": 4,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Spanish": {
+      "n": 58,
+      "visible_nonrefusal_count": 22,
+      "retained_count": 19,
+      "strict_article_success_count": 19,
+      "visible_nonrefusal_asr": 0.3793103448275862,
+      "retained_rate": 0.3275862068965517,
+      "strict_article_success_rate": 0.3275862068965517,
+      "paper_style_avg_score": 3.151315789473684
+    },
+    "Swahili": {
+      "n": 1,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Swedish": {
+      "n": 2,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.5,
+      "retained_rate": 0.5,
+      "strict_article_success_rate": 0.5,
+      "paper_style_avg_score": 2.75
+    },
+    "Thai": {
+      "n": 2,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.5,
+      "retained_rate": 0.5,
+      "strict_article_success_rate": 0.5,
+      "paper_style_avg_score": 2.875
+    },
+    "Vietnamese": {
+      "n": 4,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.25,
+      "retained_rate": 0.25,
+      "strict_article_success_rate": 0.25,
+      "paper_style_avg_score": 3.0
+    }
+  },
+  "by_method": {
+    "context_overload": {
+      "n": 333,
+      "visible_nonrefusal_count": 38,
+      "retained_count": 36,
+      "strict_article_success_count": 36,
+      "visible_nonrefusal_asr": 0.11411411411411411,
+      "retained_rate": 0.10810810810810811,
+      "strict_article_success_rate": 0.10810810810810811,
+      "paper_style_avg_score": 3.0104166666666665
+    },
+    "research_front": {
+      "n": 15,
+      "visible_nonrefusal_count": 5,
+      "retained_count": 5,
+      "strict_article_success_count": 5,
+      "visible_nonrefusal_asr": 0.3333333333333333,
+      "retained_rate": 0.3333333333333333,
+      "strict_article_success_rate": 0.3333333333333333,
+      "paper_style_avg_score": 2.875
+    },
+    "role_play": {
+      "n": 68,
+      "visible_nonrefusal_count": 45,
+      "retained_count": 41,
+      "strict_article_success_count": 41,
+      "visible_nonrefusal_asr": 0.6617647058823529,
+      "retained_rate": 0.6029411764705882,
+      "strict_article_success_rate": 0.6029411764705882,
+      "paper_style_avg_score": 3.1951219512195124
+    },
+    "system_override": {
+      "n": 85,
+      "visible_nonrefusal_count": 28,
+      "retained_count": 23,
+      "strict_article_success_count": 22,
+      "visible_nonrefusal_asr": 0.32941176470588235,
+      "retained_rate": 0.27058823529411763,
+      "strict_article_success_rate": 0.25882352941176473,
+      "paper_style_avg_score": 3.005434782608696
+    }
+  },
+  "by_surrogate_selection_source": {
+    "qwen30_32k_llama31_rr_equal_weight_risk_adjusted": {
+      "n": 501,
+      "visible_nonrefusal_count": 116,
+      "retained_count": 105,
+      "strict_article_success_count": 104,
+      "visible_nonrefusal_asr": 0.2315369261477046,
+      "retained_rate": 0.20958083832335328,
+      "strict_article_success_rate": 0.20758483033932135,
+      "paper_style_avg_score": 3.075
+    }
+  },
+  "note": "Each of the 501 mapped person labels receives one surrogate-selected target call."
+}

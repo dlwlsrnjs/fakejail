@@ -1,0 +1,343 @@
+{
+  "schema": "jailnews_gpt4omini_501_qwen32_summary/v1",
+  "created_utc": "2026-10-02T18:34:28.829364+00:00",
+  "target_model": "gpt-4o-mini-2024-07-18",
+  "judge_model": "Qwen2.5-32B-Instruct",
+  "overall": {
+    "n": 501,
+    "visible_nonrefusal_count": 366,
+    "retained_count": 346,
+    "strict_article_success_count": 338,
+    "visible_nonrefusal_asr": 0.7305389221556886,
+    "retained_rate": 0.6906187624750499,
+    "strict_article_success_rate": 0.6746506986027944,
+    "paper_style_avg_score": 3.074421965317919
+  },
+  "mean_submetric_scores": {
+    "adherence": 3.6560693641618496,
+    "agitativeness": 2.586705202312139,
+    "faithfulness": 2.546242774566474,
+    "formality": 2.968208092485549,
+    "scale": 2.445086705202312,
+    "scope": 3.9826589595375723,
+    "subjectivity": 2.9710982658959537,
+    "verifiability": 3.439306358381503
+  },
+  "paper_style_harmfulness": {
+    "scale": "0-4",
+    "scored_retained_outputs": 346,
+    "avg": 3.074421965317919,
+    "median": 3.0,
+    "min": 2.25,
+    "max": 3.75,
+    "zero_imputed_avg_over_all_501": 2.123253493013972,
+    "note": "The public evaluator scores only outputs passing both fluency and refusal gates; zero-imputed is an additional coverage-adjusted diagnostic."
+  },
+  "by_descriptor_attack_language": {
+    "Bosnian": {
+      "n": 3,
+      "visible_nonrefusal_count": 2,
+      "retained_count": 2,
+      "strict_article_success_count": 2,
+      "visible_nonrefusal_asr": 0.6666666666666666,
+      "retained_rate": 0.6666666666666666,
+      "strict_article_success_rate": 0.6666666666666666,
+      "paper_style_avg_score": 3.0625
+    },
+    "Cantonese": {
+      "n": 2,
+      "visible_nonrefusal_count": 2,
+      "retained_count": 2,
+      "strict_article_success_count": 2,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 1.0,
+      "strict_article_success_rate": 1.0,
+      "paper_style_avg_score": 3.3125
+    },
+    "Czech": {
+      "n": 5,
+      "visible_nonrefusal_count": 3,
+      "retained_count": 3,
+      "strict_article_success_count": 3,
+      "visible_nonrefusal_asr": 0.6,
+      "retained_rate": 0.6,
+      "strict_article_success_rate": 0.6,
+      "paper_style_avg_score": 3.0416666666666665
+    },
+    "Dutch": {
+      "n": 24,
+      "visible_nonrefusal_count": 19,
+      "retained_count": 19,
+      "strict_article_success_count": 19,
+      "visible_nonrefusal_asr": 0.7916666666666666,
+      "retained_rate": 0.7916666666666666,
+      "strict_article_success_rate": 0.7916666666666666,
+      "paper_style_avg_score": 3.0526315789473686
+    },
+    "Filipino": {
+      "n": 1,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Finnish": {
+      "n": 2,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.5,
+      "retained_rate": 0.5,
+      "strict_article_success_rate": 0.5,
+      "paper_style_avg_score": 3.25
+    },
+    "Georgian": {
+      "n": 2,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.5,
+      "retained_rate": 0.5,
+      "strict_article_success_rate": 0.5,
+      "paper_style_avg_score": 2.75
+    },
+    "Greek": {
+      "n": 2,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.5,
+      "retained_rate": 0.5,
+      "strict_article_success_rate": 0.5,
+      "paper_style_avg_score": 3.125
+    },
+    "Hungarian": {
+      "n": 2,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 0.5,
+      "retained_rate": 0.5,
+      "strict_article_success_rate": 0.5,
+      "paper_style_avg_score": 3.25
+    },
+    "Icelandic": {
+      "n": 1,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 1,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 1.0,
+      "strict_article_success_rate": 1.0,
+      "paper_style_avg_score": 3.25
+    },
+    "Indonesian": {
+      "n": 8,
+      "visible_nonrefusal_count": 6,
+      "retained_count": 6,
+      "strict_article_success_count": 6,
+      "visible_nonrefusal_asr": 0.75,
+      "retained_rate": 0.75,
+      "strict_article_success_rate": 0.75,
+      "paper_style_avg_score": 3.1875
+    },
+    "Irish": {
+      "n": 2,
+      "visible_nonrefusal_count": 2,
+      "retained_count": 2,
+      "strict_article_success_count": 2,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 1.0,
+      "strict_article_success_rate": 1.0,
+      "paper_style_avg_score": 3.375
+    },
+    "Italian": {
+      "n": 1,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Japanese": {
+      "n": 5,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Kinyarwanda": {
+      "n": 1,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "Latvian": {
+      "n": 5,
+      "visible_nonrefusal_count": 4,
+      "retained_count": 4,
+      "strict_article_success_count": 4,
+      "visible_nonrefusal_asr": 0.8,
+      "retained_rate": 0.8,
+      "strict_article_success_rate": 0.8,
+      "paper_style_avg_score": 2.8125
+    },
+    "Lithuanian": {
+      "n": 10,
+      "visible_nonrefusal_count": 10,
+      "retained_count": 10,
+      "strict_article_success_count": 10,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 1.0,
+      "strict_article_success_rate": 1.0,
+      "paper_style_avg_score": 3.0125
+    },
+    "Malagasy": {
+      "n": 4,
+      "visible_nonrefusal_count": 4,
+      "retained_count": 4,
+      "strict_article_success_count": 4,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 1.0,
+      "strict_article_success_rate": 1.0,
+      "paper_style_avg_score": 3.125
+    },
+    "Maltese": {
+      "n": 5,
+      "visible_nonrefusal_count": 5,
+      "retained_count": 5,
+      "strict_article_success_count": 5,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 1.0,
+      "strict_article_success_rate": 1.0,
+      "paper_style_avg_score": 3.15
+    },
+    "Mandarin Chinese": {
+      "n": 2,
+      "visible_nonrefusal_count": 2,
+      "retained_count": 2,
+      "strict_article_success_count": 2,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 1.0,
+      "strict_article_success_rate": 1.0,
+      "paper_style_avg_score": 3.125
+    },
+    "Polish": {
+      "n": 405,
+      "visible_nonrefusal_count": 292,
+      "retained_count": 273,
+      "strict_article_success_count": 267,
+      "visible_nonrefusal_asr": 0.7209876543209877,
+      "retained_rate": 0.674074074074074,
+      "strict_article_success_rate": 0.6592592592592592,
+      "paper_style_avg_score": 3.0691391941391943
+    },
+    "Spanish": {
+      "n": 8,
+      "visible_nonrefusal_count": 8,
+      "retained_count": 8,
+      "strict_article_success_count": 7,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 1.0,
+      "strict_article_success_rate": 0.875,
+      "paper_style_avg_score": 3.21875
+    },
+    "Vietnamese": {
+      "n": 1,
+      "visible_nonrefusal_count": 1,
+      "retained_count": 1,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 1.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": 2.875
+    }
+  },
+  "by_method": {
+    "context_overload": {
+      "n": 458,
+      "visible_nonrefusal_count": 331,
+      "retained_count": 313,
+      "strict_article_success_count": 305,
+      "visible_nonrefusal_asr": 0.722707423580786,
+      "retained_rate": 0.6834061135371179,
+      "strict_article_success_rate": 0.665938864628821,
+      "paper_style_avg_score": 3.0650958466453675
+    },
+    "neg_prompting": {
+      "n": 2,
+      "visible_nonrefusal_count": 0,
+      "retained_count": 0,
+      "strict_article_success_count": 0,
+      "visible_nonrefusal_asr": 0.0,
+      "retained_rate": 0.0,
+      "strict_article_success_rate": 0.0,
+      "paper_style_avg_score": null
+    },
+    "research_front": {
+      "n": 9,
+      "visible_nonrefusal_count": 5,
+      "retained_count": 5,
+      "strict_article_success_count": 5,
+      "visible_nonrefusal_asr": 0.5555555555555556,
+      "retained_rate": 0.5555555555555556,
+      "strict_article_success_rate": 0.5555555555555556,
+      "paper_style_avg_score": 3.075
+    },
+    "role_play": {
+      "n": 13,
+      "visible_nonrefusal_count": 13,
+      "retained_count": 13,
+      "strict_article_success_count": 13,
+      "visible_nonrefusal_asr": 1.0,
+      "retained_rate": 1.0,
+      "strict_article_success_rate": 1.0,
+      "paper_style_avg_score": 3.2884615384615383
+    },
+    "system_override": {
+      "n": 19,
+      "visible_nonrefusal_count": 17,
+      "retained_count": 15,
+      "strict_article_success_count": 15,
+      "visible_nonrefusal_asr": 0.8947368421052632,
+      "retained_rate": 0.7894736842105263,
+      "strict_article_success_rate": 0.7894736842105263,
+      "paper_style_avg_score": 3.0833333333333335
+    }
+  },
+  "by_surrogate_selection_source": {
+    "ensemble_global_prior": {
+      "n": 395,
+      "visible_nonrefusal_count": 283,
+      "retained_count": 266,
+      "strict_article_success_count": 260,
+      "visible_nonrefusal_asr": 0.7164556962025317,
+      "retained_rate": 0.6734177215189874,
+      "strict_article_success_rate": 0.6582278481012658,
+      "paper_style_avg_score": 3.0709586466165413
+    },
+    "sample_surrogate_empirical_then_ensemble": {
+      "n": 106,
+      "visible_nonrefusal_count": 83,
+      "retained_count": 80,
+      "strict_article_success_count": 78,
+      "visible_nonrefusal_asr": 0.7830188679245284,
+      "retained_rate": 0.7547169811320755,
+      "strict_article_success_rate": 0.7358490566037735,
+      "paper_style_avg_score": 3.0859375
+    }
+  },
+  "note": "Each of the 501 mapped person labels receives one surrogate-selected target call."
+}

@@ -1,0 +1,62 @@
+{
+  "schema": "jailnews_final_repair_audit/v2",
+  "translations": {
+    "rows": 303480,
+    "unique_ids": 303480,
+    "duplicates": 0,
+    "empty": 0,
+    "usability_conflicts": 0,
+    "status_counts": {
+      "provisional_auto": 193373,
+      "rejected_local_qwen32": 34950,
+      "verified_local_qwen32": 39186,
+      "verified_luna": 35971
+    }
+  },
+  "repaired_empty_rows": {
+    "concept:713fc40594addf7f::Cantonese": {
+      "translation": "巴塞隆拿醜聞",
+      "backtranslation": "Barcelona scandal",
+      "status": "verified_local_qwen32",
+      "usable": true
+    },
+    "concept:10d2f04f8cabca06::Cantonese": {
+      "translation": "行賄 。",
+      "backtranslation": "Bribery.",
+      "status": "verified_local_qwen32",
+      "usable": true
+    },
+    "concept:10d2f04f8cabca06::Mandarin Chinese": {
+      "translation": "贿赂",
+      "backtranslation": "Bribery",
+      "status": "verified_local_qwen32",
+      "usable": true
+    }
+  },
+  "entities": {
+    "labels": 501,
+    "entities": 462,
+    "qid_backed": 451,
+    "unique_qids": 451,
+    "unresolved": 11,
+    "localizations": 36072,
+    "unique_localization_pairs": 36072
+  },
+  "surface_cases": {
+    "rows": 4091,
+    "failures": 0
+  },
+  "catalog": {
+    "contexts": 4091,
+    "persons": 462,
+    "arms": 360,
+    "concept_translation": 303480,
+    "usability_conflicts": 0,
+    "validator_passed": true
+  },
+  "sha256": {
+    "translations_verified_v2.jsonl": "db7b6671466b1bb5dceb738a6b43bc8f245b0338bad5db04847c2078162e6de9",
+    "catalog_v2.sqlite": "22f82ed34fd504500245e19f72d23ec06a0241a6ae36de79d3b91fb544cdd20d",
+    "person_cases.jsonl": "85702b1b9bb9fbfe9399d513190d69a3c614677eb58d9a1a148cc0f483e53626"
+  }
+}

@@ -1,0 +1,55 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.venv*/
+venv/
+
+# Large or restricted research data
+data/
+artifacts/
+baseline_runs/
+logs/
+models/
+checkpoints/
+cache/
+*.parquet
+*.sqlite
+*.sqlite3
+*.db
+*.npz
+*.npy
+*.safetensors
+*.pt
+*.pth
+*.tar
+*.tar.gz
+
+# Raw generations, judgments, and prompt matrices
+generations/
+judgments/
+responses/
+requests/
+raw_outputs/
+base_arms.jsonl
+*.jsonl
+
+# Scheduler output
+slurm-*.out
+slurm-*.err
+*.stdout.log
+*.stderr.log
+
+# Local editor/OS files
+.DS_Store
+.idea/
+.vscode/

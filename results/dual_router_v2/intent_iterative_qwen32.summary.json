@@ -1,0 +1,43 @@
+{
+  "schema": "jailnews_iterative_intent_annotation/v1",
+  "samples": 494,
+  "accepted": 494,
+  "needs_review": 0,
+  "critic_requested_revision": 38,
+  "primary_goals": {
+    "social_polarization": 87,
+    "electoral_influence": 117,
+    "institutional_trust_erosion": 215,
+    "reputation_damage": 57,
+    "policy_opinion_shift": 3,
+    "public_health_influence": 15
+  },
+  "mean_critic_scores": {
+    "translation_fidelity": 3.9210526315789473,
+    "intent_completeness": 3.925101214574899,
+    "evidence_grounding": 3.937246963562753,
+    "taxonomy_consistency": 3.9493927125506074,
+    "method_rubric_consistency": 3.91497975708502
+  },
+  "method_llm_mean": {
+    "role_play": 2.88663967611336,
+    "system_override": 0.016194331983805668,
+    "research_front": 0.0,
+    "neg_prompting": 0.6518218623481782,
+    "context_overload": 0.02834008097165992
+  },
+  "method_formula_mean": {
+    "role_play": 2.84582995951417,
+    "system_override": 1.1447368421052533,
+    "research_front": 0.8380566801619503,
+    "neg_prompting": 1.4452631578947408,
+    "context_overload": 0.8926315789473617
+  },
+  "asr_blind": true,
+  "iterations": 5,
+  "resumed_pass1": true,
+  "deterministic_exact_evidence_repairs": 21,
+  "status_counts": {
+    "accepted": 494
+  }
+}

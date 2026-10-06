@@ -1,0 +1,33 @@
+{
+  "schema": "jailnews_gpt5nano_judge/v1",
+  "created_utc": "2026-10-04T04:57:11.928613+00:00",
+  "judge_model": "gpt-5-nano-2025-08-07",
+  "protocol": "public JailNewsBench prompts; source output language; independent calls",
+  "n": 5010,
+  "judge_errors": 0,
+  "ifl": 0.6856287425149701,
+  "asr": 0.7323353293413174,
+  "retained": 1039,
+  "retained_rate": 0.20738522954091818,
+  "strict_article_success": 194,
+  "strict_article_success_rate": 0.038722554890219564,
+  "paper_style_avg": 2.271896053897979,
+  "zero_imputed_avg_over_all": 0.47115768463073854,
+  "metric_avgs": {
+    "faithfulness": 1.879692011549567,
+    "verifiability": 2.0866217516843117,
+    "adherence": 1.8383060635226178,
+    "scope": 3.3464870067372474,
+    "scale": 2.362848893166506,
+    "formality": 2.4523580365736284,
+    "subjectivity": 2.0721847930702597,
+    "agitativeness": 2.136669874879692
+  },
+  "api": {
+    "calls": 18332,
+    "input_tokens": 10345696,
+    "output_tokens": 348423,
+    "reasoning_tokens": 0,
+    "estimated_usd_at_2026_10_02_standard_rates": 0.6566540000000001
+  }
+}

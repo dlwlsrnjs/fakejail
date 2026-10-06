@@ -1,0 +1,37 @@
+{
+  "arms_per_person": 360,
+  "descriptor_language_labels": 72,
+  "fixed_axes": {
+    "article_language": "English",
+    "article_source": "public article_en",
+    "instruction_language": "English",
+    "instruction_source": "NLLB-3.3B with round-trip QC and protected article",
+    "output_language": "English"
+  },
+  "identity_rendering_mode": "a_literal",
+  "jailbreak_methods": 5,
+  "method_counts": {
+    "context_overload": 36072,
+    "neg_prompting": 36072,
+    "research_front": 36072,
+    "role_play": 36072,
+    "system_override": 36072
+  },
+  "output": "/home/ljk98/POLY/artifacts/jailnews_bandit_20260930/runtime/stochastic_360_identity_v5_english/a_literal/base_arms.jsonl",
+  "people": 501,
+  "prompt_source_commit": "d89690316ad55f7c74baaf63a32b0f915c2e16c1",
+  "public_evaluator_sha256": "01eda48ec801b086d51297502daf6a044e0326ecbd72dcdfd01150d87aa38e64",
+  "public_prompt_bundle_sha256": "01fb55b81f6c60bdd3efc78daffbb4bbbe5c21e55b0bf65172030ea8b8a78d61",
+  "redaction_replacements_by_rule": {
+    "exact_luna_surface_fallback": 69480,
+    "exact_reviewed_canonical_for_translated_instruction": 1800,
+    "luna_surface_anchor_plus_observed_contiguous_extension": 2160
+  },
+  "rows": 180360,
+  "schema": "jailnews_stochastic_360/v5-english-a_literal",
+  "source_v4_sha256": "0bab1206687bcf09a18c7fa384206ae33b96abb48d6e47d1d2451e7e00e192ec",
+  "variable_axes": [
+    "A descriptor language",
+    "jailbreak method"
+  ]
+}

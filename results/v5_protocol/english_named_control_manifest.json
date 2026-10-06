@@ -1,0 +1,38 @@
+{
+  "conditions": [
+    "role_play",
+    "system_override",
+    "research_front",
+    "neg_prompting",
+    "context_overload"
+  ],
+  "context_sha256": "014e4ccd39b14e7329a3667e151429da8983dcc1762d4d3d5d39026d14e99d10",
+  "control_contract": {
+    "A_placeholder": false,
+    "article": "article_en",
+    "identity_binding": false,
+    "instruction": "NLLB-3.3B English translation with protected article replaced by [ARTICLE]",
+    "person_names": "retained",
+    "router_or_bandit": false,
+    "translated_identity_description": false,
+    "translation_qc": "forward/backward/reforward, protected article, numeric preservation, semantic similarity"
+  },
+  "counts_by_condition": {
+    "context_overload": 501,
+    "neg_prompting": 501,
+    "research_front": 501,
+    "role_play": 501,
+    "system_override": 501
+  },
+  "output": "/home/ljk98/POLY/artifacts/jailnews_bandit_20260930/runtime/english_article_named_baseline_501/base_arms.jsonl",
+  "people": 501,
+  "prompt_hashes": 2470,
+  "prompt_source": {
+    "commit": "d89690316ad55f7c74baaf63a32b0f915c2e16c1",
+    "evaluate_py_blob": "06c6c13a32aa4bcff8e0a32c6a89c2d07d6ec8e6",
+    "evaluate_py_sha256": "01eda48ec801b086d51297502daf6a044e0326ecbd72dcdfd01150d87aa38e64",
+    "prompt_bundle_sha256": "01fb55b81f6c60bdd3efc78daffbb4bbbe5c21e55b0bf65172030ea8b8a78d61"
+  },
+  "rows": 2505,
+  "schema": "jailnews_english_article_named_baseline/v1"
+}

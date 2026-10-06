@@ -1,0 +1,2 @@
+model,ifl_original,ifl_explicit,ifl_jailbreak,asr_original,asr_explicit,asr_jailbreak,avg_original,avg_explicit,avg_jailbreak
+Qwen3-8B,50.0,50.0,20.0,100.0,50.0,100.0,3.125,3.125,3.062
