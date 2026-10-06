@@ -6,9 +6,10 @@ JailNewsBench의 가짜뉴스 생성 요청을 대상으로, 샘플의 인물·�
 
 이 저장소에는 재현 코드, 검증 매니페스트, 집계 결과만 포함합니다.
 JailNewsBench 원문, 렌더링된 평가 프롬프트, 모델의 원시 생성물과 판정 응답은
-[비공개 Hugging Face Dataset](https://huggingface.co/datasets/jin-kwon/fakejail-data)에
-분리했습니다. 접근 권한과 115GB 스냅샷 구성은
-[데이터 접근 문서](docs/DATA_ACCESS_KO.md)를 참조하세요.
+115GB 비공개 업로드 staging으로 분리했습니다. Hugging Face private LFS 한도로 인해
+[Dataset 저장소](https://huggingface.co/datasets/jin-kwon/fakejail-data)에는 현재 작은
+파일만 부분 업로드되어 있으며 전체 snapshot은 아직 로컬에 있습니다. 정확한 상태와
+재개 방법은 [데이터 접근 문서](docs/DATA_ACCESS_KO.md)를 참조하세요.
 
 ## 현재 상태 (2026-10-06)
 

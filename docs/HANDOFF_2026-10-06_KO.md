@@ -233,14 +233,17 @@ shard 4개는 모두 0행이다. V5 matrix는 완성되었지만 generation을 �
 
 ## 9. 비공개 데이터 스냅샷
 
-아래는 크거나 공개 재배포가 부적절하여 GitHub 코드 저장소에 넣지 않고 비공개
-Hugging Face Dataset `jin-kwon/fakejail-data`에 분리했다.
+아래는 크거나 공개 재배포가 부적절하여 GitHub 코드 저장소에 넣지 않고 비공개 업로드
+staging으로 분리했다. Hugging Face Dataset `jin-kwon/fakejail-data`를 만들었지만
+private LFS storage limit 403으로 대형 파일 업로드가 중단되었다. 현재 Hub에는 작은
+메타데이터 파일만 일부 커밋되어 있으며 전체 snapshot의 원본은 로컬 staging에 있다.
 
 - `/home/ljk98/POLY/data/jailnewsbench_person_domain_20260930/` — 약 6.1GB
 - `/home/ljk98/POLY/artifacts/jailnews_bandit_20260930/` — 약 51GB
 - `/home/ljk98/POLY/baseline_runs/jailnewsbench_table2_qwen3_8b_qwen32_test_20261002/` — 약 58GB
 - 모든 원시 article/instruction, prompt matrix, generation, judgment, API response, Slurm log
 
-총 업로드 스냅샷은 1,480개 원본 파일, 123,350,291,485 bytes(약 115GiB)다. GitHub에는
-대응하는 manifest, SHA-256, aggregate만 포함했다. 자세한 구조와 접근 방법은
-`docs/DATA_ACCESS_KO.md`를 따른다.
+총 staging snapshot은 1,480개 원본 파일, 123,350,291,485 bytes(약 115GiB)다.
+GitHub에는 대응하는 manifest, SHA-256, aggregate만 포함했다. HF 요금제 증설 또는
+S3/GCS/R2 같은 비공개 버킷 정보가 확보되면 staging을 그대로 재개한다. 자세한 구조와
+접근 방법은 `docs/DATA_ACCESS_KO.md`를 따른다.

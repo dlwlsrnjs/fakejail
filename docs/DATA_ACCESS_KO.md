@@ -8,8 +8,11 @@
 - 스냅샷: 2026-10-06
 - 원본 파일: 1,480개
 - 논리 크기: 123,350,291,485 bytes(약 115GiB)
+- 업로드 상태: **미완료** — Hugging Face private LFS storage limit 403
+- 로컬 staging: `/home/ljk98/POLY/fakejail_hf_upload`
 
-접근 권한이 있는 계정으로 인증해야 내려받을 수 있다.
+현재 Hub에는 작은 파일만 일부 커밋되어 있으므로 아래 전체 다운로드 명령은 업로드가
+완료된 뒤 사용한다. 접근 권한이 있는 계정으로 인증해야 한다.
 
 ```bash
 hf auth login
@@ -36,6 +39,21 @@ hf download jin-kwon/fakejail-data \
 | `baseline_runs/` | 164 | 61,343,567,362 bytes | 공식형 baseline 원시 생성·판정 |
 
 Dataset 루트의 `DATA_MANIFEST.json`과 `README.md`에도 동일한 범위가 기록되어 있다.
+
+## 업로드 재개
+
+Hugging Face private storage를 증설한 경우 기존 해시 상태를 재사용한다.
+
+```bash
+hf upload-large-folder jin-kwon/fakejail-data \
+  /home/ljk98/POLY/fakejail_hf_upload \
+  --repo-type dataset \
+  --num-workers 8
+```
+
+다른 비공개 object storage를 사용할 경우 동일 staging의 `data/`, `artifacts/`,
+`baseline_runs/`, `README.md`, `DATA_MANIFEST.json`을 업로드한다. 공개 모델 가중치는
+staging에 포함되어 있지 않다.
 
 ## 코드와 연결
 
