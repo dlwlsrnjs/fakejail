@@ -4,12 +4,13 @@ JailNewsBench의 가짜뉴스 생성 요청을 대상으로, 샘플의 인물·�
 `72개 언어 × 5개 JailNewsBench 기법 = 360 arms` 중 적은 질의로 유효한 설정을
 찾는 transfer-prior / contextual bandit 연구 코드입니다.
 
-이 저장소에는 재현 코드, 검증 매니페스트, 집계 결과만 포함합니다.
-JailNewsBench 원문, 렌더링된 평가 프롬프트, 모델의 원시 생성물과 판정 응답은
-115GB 비공개 업로드 staging으로 분리했습니다. Hugging Face private LFS 한도로 인해
-[Dataset 저장소](https://huggingface.co/datasets/jin-kwon/fakejail-data)에는 현재 작은
-파일만 부분 업로드되어 있으며 전체 snapshot은 아직 로컬에 있습니다. 정확한 상태와
-재개 방법은 [데이터 접근 문서](docs/DATA_ACCESS_KO.md)를 참조하세요.
+이 저장소에는 재현 코드, 검증 매니페스트, 집계 결과만 포함합니다. 논문 작성과 최종
+V5 실험에 필요한 원자료·프롬프트·target 관측·surrogate 원시응답은 약 1.0GB의
+`paper_snapshot_v1`으로 선별해 [비공개 Hugging Face Dataset](https://huggingface.co/datasets/jin-kwon/fakejail-data/tree/main/paper_snapshot_v1)에
+보관합니다. 115GiB 규모의 과거 전체 staging은 탐색 실험과 중복 산출물이 많아 공식
+재현 스냅샷에서 제외했습니다. 구성, 체크섬, 다운로드 방법은
+[데이터 접근 문서](docs/DATA_ACCESS_KO.md)를 참조하세요.
+재현용 Dataset revision은 `dc7747e6e57c0993cbe14656b129754678eba976`입니다.
 
 ## 현재 상태 (2026-10-06)
 
@@ -89,7 +90,8 @@ V5 audit은 제외된 `artifacts/.../base_arms.jsonl`을 복원한 환경에서 
 ## 데이터 및 비밀정보 원칙
 
 - API 키는 저장소나 명령행 인자에 저장하지 않습니다.
-- `.env`, 로그, 원시 응답, `data/`, `artifacts/`, 모델 캐시는 코드 Git에서 제외합니다.
+- `.env`, 로그, 원시 응답, `data/`, `artifacts/`, 모델 캐시는 코드 Git에서 제외하고,
+  재현에 필요한 원시응답만 비공개 Dataset 스냅샷에 둡니다.
 - 공개 결과는 aggregate/manifest만 사용합니다.
 - 외부 API 평가에는 승인된 샘플과 예산만 전송합니다.
 - JailNewsBench와 모델 체크포인트의 원 라이선스·접근 조건을 따릅니다.

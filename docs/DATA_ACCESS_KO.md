@@ -1,82 +1,92 @@
-# 비공개 데이터 및 원시 응답 접근
+# 비공개 논문 데이터 및 원시 응답 접근
 
-## 저장소
+## 공식 스냅샷
 
 - Hugging Face Dataset: <https://huggingface.co/datasets/jin-kwon/fakejail-data>
+- 경로: `paper_snapshot_v1/`
 - 소유 계정: `jin-kwon`
 - 가시성: private
-- 스냅샷: 2026-10-06
-- 원본 파일: 1,480개
-- 논리 크기: 123,350,291,485 bytes(약 115GiB)
-- 업로드 상태: **미완료** — Hugging Face private LFS storage limit 403
-- Hub 반영량(중단 직후): 1,043 files, 2,160,891,059 logical bytes, 12 LFS objects
-- 로컬 staging: `/home/ljk98/POLY/fakejail_hf_upload`
+- 생성일: 2026-10-06 UTC
+- 고정 revision: `dc7747e6e57c0993cbe14656b129754678eba976`
+- 압축 크기: 1,058,563,648 bytes(약 1.0GB)
+- 매니페스트: `paper_snapshot_v1/MANIFEST.json`
+- 체크섬: `paper_snapshot_v1/SHA256SUMS`
 
-현재 Hub에는 작은 파일만 일부 커밋되어 있으므로 아래 전체 다운로드 명령은 업로드가
-완료된 뒤 사용한다. 접근 권한이 있는 계정으로 인증해야 한다.
+이 스냅샷은 과거 115GiB 전체 staging을 그대로 보존한 것이 아니다. 논문 분석과 최종
+V5 실험에 필요한 자료만 선별했으며, 공개 모델 가중치·중복 실행·폐기된 렌더링·대형
+hidden-state 배열은 제외했다.
+
+## 다운로드와 검증
+
+접근 권한이 있는 Hugging Face 계정으로 인증한 뒤 스냅샷만 받는다.
 
 ```bash
 hf auth login
 hf download jin-kwon/fakejail-data \
   --repo-type dataset \
+  --revision dc7747e6e57c0993cbe14656b129754678eba976 \
+  --include 'paper_snapshot_v1/**' \
   --local-dir ./fakejail_private_data
+
+cd ./fakejail_private_data/paper_snapshot_v1
+sha256sum -c SHA256SUMS
 ```
 
-필요한 하위 경로만 받을 때는 `--include`를 사용한다.
+필요한 아카이브만 받을 수도 있다.
 
 ```bash
 hf download jin-kwon/fakejail-data \
+  paper_snapshot_v1/core_data.tar.zst \
   --repo-type dataset \
-  --include 'results-or-path-pattern' \
+  --revision dc7747e6e57c0993cbe14656b129754678eba976 \
   --local-dir ./fakejail_private_data
 ```
 
-## 구성
-
-| 경로 | 파일 | 크기 | 내용 |
-|---|---:|---:|---|
-| `data/` | 603 | 7,313,761,593 bytes | JailNewsBench 원본과 인물·개념·번역 파생 데이터 |
-| `artifacts/` | 713 | 54,692,962,530 bytes | prompt matrix, raw generation/judgment, prior/router/posterior 상태 |
-| `baseline_runs/` | 164 | 61,343,567,362 bytes | 공식형 baseline 원시 생성·판정 |
-
-Dataset 루트의 `DATA_MANIFEST.json`과 `README.md`에도 동일한 범위가 기록되어 있다.
-
-## 업로드 재개
-
-Hugging Face private storage를 증설한 경우 기존 해시 상태를 재사용한다.
+프로젝트 루트에서 필요한 아카이브를 해제한다. 내부 경로는 모두 프로젝트 상대 경로다.
 
 ```bash
-hf upload-large-folder jin-kwon/fakejail-data \
-  /home/ljk98/POLY/fakejail_hf_upload \
-  --repo-type dataset \
-  --num-workers 8
+tar --zstd -xf paper_snapshot_v1/core_data.tar.zst
+tar --zstd -xf paper_snapshot_v1/v5_prompts.tar.zst
+tar --zstd -xf paper_snapshot_v1/target_observations.tar.zst
+tar --zstd -xf paper_snapshot_v1/surrogate_llama.tar.zst
 ```
 
-다른 비공개 object storage를 사용할 경우 동일 staging의 `data/`, `artifacts/`,
-`baseline_runs/`, `README.md`, `DATA_MANIFEST.json`을 업로드한다. 공개 모델 가중치는
-staging에 포함되어 있지 않다.
+## 아카이브 구성
+
+| 아카이브 | 압축 크기 | SHA-256 | 내용 |
+|---|---:|---|---|
+| `core_data.tar.zst` | 231,890,622 | `6855454d1453d68c351fcc4fa376a13f41bdc4ea10f133acd2d02012729d5248` | 최종 entity/QID 수리, 72언어 번역, catalog, 임베딩, 분석용 샘플, JailNewsBench 원자료 |
+| `v5_prompts.tar.zst` | 57,497,673 | `3cbda3e0334563a2d710248eeab523ff7c34dd497ee6ab077b27eb62dfee8dae` | 영어 통제 V5 `a_literal`·`canonical_en` 360-arm 행렬과 named English control |
+| `target_observations.tar.zst` | 37,941,152 | `5d0ce2f693cb68107f4c7859c792f9a28a9b25e51e6a3cbb1a4613605656f073` | GPT target 응답·판정, balanced/top-two 관측, router/BAI 분석 산출물 |
+| `surrogate_llama.tar.zst` | 731,234,201 | `b0245d916753810da3807966c35ae6d6ac2c96541123acf405831e3077da8b10` | Llama-3.1-8B·Llama-3 RR 생성·판정·반복 관측·전이 분석 |
+
+각 아카이브의 정확한 선택 경로는 같은 폴더의 `*.files`에 기록했다. GitHub에도
+[`PAPER_SNAPSHOT_MANIFEST.json`](PAPER_SNAPSHOT_MANIFEST.json)을 복제해 두었다.
+
+## 명시적으로 제외한 자료
+
+- 공개 모델 가중치와 Hugging Face 모델 캐시
+- 약 56.7GB의 Table-2 self-detection hidden-state 배열
+- 선택한 Llama surrogate 분석으로 대체된 Qwen30 탐색 생성물
+- V2–V4 전체 prompt matrix와 기타 폐기된 렌더링
+- `translations_verified_v2.jsonl` 이전 번역 수리 중간 shard
+- scheduler/stdout/stderr 로그, 임시 checkpoint, 중복 tarball
+
+과거 `/home/ljk98/POLY/fakejail_hf_upload`의 115GiB staging은 공식 배포 단위가
+아니며, 논문 재현에 필요하다고 확인된 파일이 생길 때만 새 버전의 curated snapshot에
+명시적으로 추가한다.
 
 ## 코드와 연결
 
-다운로드한 루트에서 다음 경로를 코드 저장소 루트로 연결하거나, 각 스크립트의 기본
-경로 인자를 지정한다.
-
-```text
-data/
-artifacts/
-baseline_runs/
-```
-
-코드에는 과거 실행 환경의 `/home/ljk98/POLY` 절대 경로가 일부 남아 있으므로 다른
-환경에서는 해당 기본값을 수정해야 한다.
+아카이브를 코드 저장소의 상위 프로젝트 루트에 풀면 `data/`와 `artifacts/` 경로가
+복원된다. 일부 스크립트에는 과거 실행 환경의 `/home/ljk98/POLY` 기본값이 있으므로
+다른 환경에서는 CLI 경로 인자를 지정한다.
 
 ## 주의
 
 - 원시 파일에는 정치인 이름, 가짜뉴스 생성 지시, 모델 생성물과 판정 응답이 포함된다.
-- 공개 모델 가중치, Hugging Face 모델 캐시, 체크포인트 파일은 포함하지 않는다.
 - 승인된 모델 안전성 연구 목적으로만 사용한다.
 - 비공개 상태를 변경하기 전에 upstream 라이선스와 harmful-content 검토를 다시 한다.
-- API 키나 토큰은 포함하지 않았다. 업로드 전 115GB 전체 키 패턴 검사를 수행했고
-  탐지 결과는 0건이었다.
+- API 키나 토큰은 포함하지 않았다. curated 원본 범위에 대해 키 패턴 검사를 수행했다.
 - 새 실행은 기존 shard를 덮어쓰지 말고 새 run directory를 만들거나 정확한 manifest로
   resume한다.

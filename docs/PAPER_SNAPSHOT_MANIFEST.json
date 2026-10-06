@@ -1,0 +1,26 @@
+{
+  "schema": "fakejail_paper_snapshot/v1",
+  "created_utc_date": "2026-10-06",
+  "repo_id": "jin-kwon/fakejail-data",
+  "hub_commit": "dc7747e6e57c0993cbe14656b129754678eba976",
+  "visibility": "private",
+  "compressed_bytes": 1058563648,
+  "archives": {
+    "core_data.tar.zst": {
+      "bytes": 231890622,
+      "sha256": "6855454d1453d68c351fcc4fa376a13f41bdc4ea10f133acd2d02012729d5248"
+    },
+    "v5_prompts.tar.zst": {
+      "bytes": 57497673,
+      "sha256": "3cbda3e0334563a2d710248eeab523ff7c34dd497ee6ab077b27eb62dfee8dae"
+    },
+    "target_observations.tar.zst": {
+      "bytes": 37941152,
+      "sha256": "5d0ce2f693cb68107f4c7859c792f9a28a9b25e51e6a3cbb1a4613605656f073"
+    },
+    "surrogate_llama.tar.zst": {
+      "bytes": 731234201,
+      "sha256": "b0245d916753810da3807966c35ae6d6ac2c96541123acf405831e3077da8b10"
+    }
+  }
+}

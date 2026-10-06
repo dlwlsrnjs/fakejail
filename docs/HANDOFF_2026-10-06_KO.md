@@ -231,19 +231,20 @@ shard 4개는 모두 0행이다. V5 matrix는 완성되었지만 generation을 �
 - language family/script/region, Wikipedia coverage, description quality별 slice
 - judge 교차검증과 수동 blind audit
 
-## 9. 비공개 데이터 스냅샷
+## 9. 비공개 논문 데이터 스냅샷
 
-아래는 크거나 공개 재배포가 부적절하여 GitHub 코드 저장소에 넣지 않고 비공개 업로드
-staging으로 분리했다. Hugging Face Dataset `jin-kwon/fakejail-data`를 만들었지만
-private LFS storage limit 403으로 대형 파일 업로드가 중단되었다. 현재 Hub에는 작은
-메타데이터 파일만 일부 커밋되어 있으며 전체 snapshot의 원본은 로컬 staging에 있다.
+과거 115GiB staging 전체를 올리는 대신, 후속 V5 실험과 논문 분석에 필요한 파일만
+`paper_snapshot_v1`으로 선별했다. 비공개 Hugging Face Dataset
+`jin-kwon/fakejail-data`의 동일 경로에 네 개의 zstd 아카이브와 체크섬·선택 목록을
+둔다. 총 압축 크기는 1,058,563,648 bytes(약 1.0GB)이며, 완료 revision은
+`dc7747e6e57c0993cbe14656b129754678eba976`이다.
 
-- `/home/ljk98/POLY/data/jailnewsbench_person_domain_20260930/` — 약 6.1GB
-- `/home/ljk98/POLY/artifacts/jailnews_bandit_20260930/` — 약 51GB
-- `/home/ljk98/POLY/baseline_runs/jailnewsbench_table2_qwen3_8b_qwen32_test_20261002/` — 약 58GB
-- 모든 원시 article/instruction, prompt matrix, generation, judgment, API response, Slurm log
+- `core_data.tar.zst`: 최종 entity/QID 수리, 72언어 번역, catalog, embeddings, 원자료
+- `v5_prompts.tar.zst`: 영어 통제 V5 두 조건의 360-arm matrix와 English control
+- `target_observations.tar.zst`: GPT target/judge, balanced/top-two, router/BAI 자료
+- `surrogate_llama.tar.zst`: Llama-3.1-8B + Llama-3 RR 원시 생성·판정·반복 관측
 
-총 staging snapshot은 1,480개 원본 파일, 123,350,291,485 bytes(약 115GiB)다.
-GitHub에는 대응하는 manifest, SHA-256, aggregate만 포함했다. HF 요금제 증설 또는
-S3/GCS/R2 같은 비공개 버킷 정보가 확보되면 staging을 그대로 재개한다. 자세한 구조와
-접근 방법은 `docs/DATA_ACCESS_KO.md`를 따른다.
+Table-2 hidden states, Qwen30 탐색 실행, V2–V4 전체 matrix, 번역 중간 shard, 로그,
+공개 모델 가중치는 제외했다. 과거 staging은 공식 재현 단위가 아니며, 누락 자료가
+실제로 필요해질 때만 새 snapshot 버전으로 선별 추가한다. 정확한 SHA-256과 접근
+명령은 `docs/DATA_ACCESS_KO.md`를 따른다.
