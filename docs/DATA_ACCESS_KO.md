@@ -9,6 +9,7 @@
 - 원본 파일: 1,480개
 - 논리 크기: 123,350,291,485 bytes(약 115GiB)
 - 업로드 상태: **미완료** — Hugging Face private LFS storage limit 403
+- Hub 반영량(중단 직후): 1,043 files, 2,160,891,059 logical bytes, 12 LFS objects
 - 로컬 staging: `/home/ljk98/POLY/fakejail_hf_upload`
 
 현재 Hub에는 작은 파일만 일부 커밋되어 있으므로 아래 전체 다운로드 명령은 업로드가
