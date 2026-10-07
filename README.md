@@ -21,11 +21,18 @@ V5 실험에 필요한 원자료·프롬프트·target 관측·surrogate 원시�
 - 샘플별 영어 기사·영어 지시문·영어 출력은 고정하고 `A:` 인물 설명 언어와
   JailNewsBench 기법만 바꾸는 V5 통제 실험 행렬 생성 완료.
 - V5는 `a_literal`과 `canonical_en` 두 조건 각각 180,360행이다.
+- 30명×6언어×5기법 통제 파일럿 1,950건의 생성·Qwen2.5-32B proxy 판정 완료.
+  생성 invalid 1건과 judge error 0건을 기록했다.
 - 501명×상위 10설정의 GPT-4o-mini 결과와 GPT-5-nano 판정 집계 완료.
 - 문맥 클러스터 기반 selector와 intent–technique / entity–language 이중 라우터 구현 및
   OOF 평가 완료.
-- 2026-10-06 사용자 요청에 따라 모든 RTX6000/H200 실행·대기 작업을 중단했다.
-  저장된 중간 파일은 유지되지만, V5 대상 생성 실험은 아직 실행하지 않았다.
+- 이전 RTX6000/H200 대량 작업은 중단 상태를 유지한다. 로컬 8×H100에서 수행한
+  canonical-English 501명×360 arms 생성은 2026-10-07 사용자 요청으로 115,499/
+  180,360건(64.038%)에서 일시정지했다. 판정·PC2 평가·selected-arm 반복·A-literal
+  ablation은 아직 시작하지 않았다.
+- 주 PC2 prior는 outcome-blind Wikipedia/localization·person/context embedding·
+  ASR-blind intent 신호를 실제 언어×기법 선택에 사용하며, 외부-only baseline도
+  분리 보고한다.
 
 자세한 완료 범위, 중단 지점, 재개 순서는
 [인수인계 문서](docs/HANDOFF_2026-10-06_KO.md)를 참조하세요.
@@ -40,6 +47,7 @@ V5 실험에 필요한 원자료·프롬프트·target 관측·surrogate 원시�
 | Context-cluster OOF | ASR success@1 81.24%, @2 91.42% | 관측된 10-arm catalog 평가 |
 | TRIPLE-CLST OOF | ASR success@1 81.64% | nested static 대비 +2.79pp, paired p=0.0336 |
 | V2 vs V3 matched checkpoint | strict +14.89pp | explicit identity resolution이 생성 품질을 높였으나 V5 통제가 필요 |
+| V5 30명 통제 파일럿 + Qwen32 judge | strict control 10.00%, A-literal 68.19%, canonical-English 66.00% | 1 draw·단일 proxy judge의 탐색 결과 |
 
 `ASR`, `retained`, `strict`는 서로 다른 endpoint입니다. 특히 판정 모델에 따라 수치가
 크게 달라졌으므로 서로 다른 judge의 결과를 같은 열처럼 비교하면 안 됩니다. V5는 이
@@ -71,7 +79,10 @@ fakejail/
 └── requirements.txt
 ```
 
-코드 지도를 보려면 [재현 가이드](docs/REPRODUCIBILITY_KO.md)를 참조하세요.
+코드 지도를 보려면 [재현 가이드](docs/REPRODUCIBILITY_KO.md), 새 파일럿의 계약·결과·제한은
+[V5 통제 파일럿 문서](docs/V5_CONTROLLED_PILOT_2026-10-06_KO.md), 501명×360 arms 주 실험은
+[V5 full-501 PC2 문서](docs/V5_FULL501_PC2_2026-10-06_KO.md), 현재 체크포인트와 중단 이력은
+[2026-10-07 체크포인트 문서](docs/V5_FULL501_CHECKPOINT_2026-10-07_KO.md)를 참조하세요.
 
 ## 빠른 무실행 검증
 

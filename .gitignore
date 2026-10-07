@@ -22,6 +22,7 @@ logs/
 models/
 checkpoints/
 cache/
+external/
 *.parquet
 *.sqlite
 *.sqlite3

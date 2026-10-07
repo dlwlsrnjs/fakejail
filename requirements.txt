@@ -1,5 +1,8 @@
 numpy>=1.26
 scipy>=1.11
+datasets>=4.0
+huggingface-hub>=1.31,<2.0
+ninja>=1.11
 pandas>=2.1
 pyarrow>=15
 torch>=2.3

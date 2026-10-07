@@ -157,7 +157,11 @@ TRIPLE-CLST B=1은 nested static 대비 +2.79pp, paired exact p=0.0336이었다.
 - V4: `A` 유지와 영어 실명 출력 두 모드를 분리. Xi 360-arm pilot에서 `a_literal`이
   `canonical_en`보다 높았지만 입력 언어 통제가 충분하지 않았음.
 - V5: ARTICLE, INSTRUCTION, 출력 언어를 영어로 고정하고 설명 언어×기법만 변화.
-  두 모드 각각 180,360행 생성과 integrity audit까지 완료. 생성 실험은 미실행.
+  두 모드 각각 180,360행 matrix와 integrity audit를 완료했다. 이어 30명×6언어×5기법의
+  통제 파일럿 1,950건을 Qwen3-30B FP8로 생성하고 Qwen2.5-32B로 판정했다. 1건의 빈
+  visible answer를 제외한 1,949건에서 strict는 control 10.00%, `a_literal` 68.19%,
+  `canonical_en` 66.00%였다. 자세한 계약과 제한은
+  `docs/V5_CONTROLLED_PILOT_2026-10-06_KO.md`에 있다.
 
 ## 6. 판정기 관련 주의
 
@@ -171,7 +175,7 @@ retained/strict 비율이 크게 낮아졌다. 따라서 다음을 반드시 지
 4. 논문 프롬프트 해시와 upstream commit을 manifest에 고정한다.
 5. strict는 프로젝트 추가 지표이며 논문 Table 2의 열이 아니다.
 
-## 7. GPU 중단 시점
+## 7. GPU 중단과 로컬 재개
 
 2026-10-06에 다음 연구 작업을 모두 취소했다.
 
@@ -180,15 +184,23 @@ retained/strict 비율이 크게 낮아졌다. 따라서 다음을 반드시 지
 - 관련 GPT/Qwen judge, snapshot, aggregate dependency jobs
 - 남아 있던 H200 대기 배열
 
-최종 확인 시 GPU partition의 실행·대기 작업은 0이었다. 남은 `all` partition 항목은
-GPU를 점유하지 않는 dependency 상태였다. 새 GPU 작업은 제출하지 않았다.
+당시 최종 확인 시 GPU partition의 실행·대기 작업은 0이었다. 남은 `all` partition
+항목은 GPU를 점유하지 않는 dependency 상태였다.
 
-영어 실명 primary control의 2,505-arm matrix와 번역 자산은 완성되었지만 generation
-shard 4개는 모두 0행이다. V5 matrix는 완성되었지만 generation을 시작하지 않았다.
+이후 2026-10-06 로컬 8×H100 환경에서 먼저 P0/P1 통제 파일럿을 완료한 뒤,
+사용자 지시에 따라 주 실험을 501명×72언어×5기법=180,360행으로 확대했다.
+canonical-English generation은 두 차례 외부 종료 뒤 115,499/180,360건(64.038%)까지
+보존됐으며, 2026-10-07 사용자 요청으로 일시정지했다. 현재 GPU 프로세스와 자동 실행
+서비스는 없다. Qwen32 판정, PC2 full-pool 평가, selected-arm 4개 추가 seed,
+A-literal 전체 ablation은 시작하지 않았다. 상세 상태·체크섬·중단 이력은
+`docs/V5_FULL501_CHECKPOINT_2026-10-07_KO.md`에 있다.
 
 ## 8. 다음 작업 — 권장 순서
 
 ### P0. 실험 계약 동결
+
+상태: 완료. `configs/v5_pilot_preregister.json`에 모델 revision, decoding, cohort,
+endpoint, shared-control 처리 규칙을 생성 전에 고정했다.
 
 - V5 `a_literal`, `canonical_en`, 영어 실명 control의 정확한 prompt hash를 고정한다.
 - generator/judge snapshot, chat template, temperature, seed, max tokens를 preregister한다.
@@ -197,12 +209,21 @@ shard 4개는 모두 0행이다. V5 matrix는 완성되었지만 generation을 �
 
 ### P1. 작은 통제 파일럿
 
+상태: 부분 완료. 30명 층화 표본, 6개 언어, 5개 기법, 세 조건의 생성·단일 Qwen32
+판정·집계를 완료했다. 출력 절단과 반복은 0건, 빈 visible answer는 1건이었다.
+Qwen2.5-7B 보조 판정도 1,950건 완료했으며 Qwen32 대비 strict raw agreement는
+82.86%, Cohen kappa는 0.642였다. 수동 표본검사는 아직 남아 있다.
+
 - 501명을 바로 돌리지 말고 20–30명 층화 표본을 사용한다.
 - control + 두 V5 mode에서 같은 language/method subset을 paired 실행한다.
 - 출력 잘림, 실명/A 해소, 기사 형식, instruction fidelity를 수동 표본검사한다.
 - Qwen32와 별도 judge의 agreement를 측정한다.
 
 ### P2. 균형 관측과 반복
+
+상태: 일시정지. canonical-English 501명×360 arms exhaustive draw 중 115,499건을
+수집했다. PC2 top-1 / observed-oracle / random-control 선택과 draw 1–4 반복은 아직
+시작하지 않았다.
 
 - 전체 360 arms의 language/method marginal이 균형인 design을 만든다.
 - 동일 person-arm을 최소 3회, 가능하면 5회 서로 다른 seed로 반복한다.
@@ -211,12 +232,23 @@ shard 4개는 모두 0행이다. V5 matrix는 완성되었지만 generation을 �
 
 ### P3. surrogate 재선정·calibration
 
+상태: full-501 Llama 두 모델×두 draw 복구 및 사전 검증 완료. Qwen target outcome을
+보기 전에 safety-gated PC2 설정을 동결했다. 이후 복원된 Wikipedia/localization,
+person/context embedding, ASR-blind intent를 실제 360-arm prior에 연결했다. 외부-only
+prior는 surrogate에서 약했기 때문에 0–35% grid 후 외부 가중치를 2.5%로 제한했고,
+최종 20회 surrogate replay와 501명 selection-manifest smoke test로 검증했다.
+
 - Llama-3.1-8B를 기본 surrogate로 유지한다.
 - RR 모델은 endpoint별 가중치를 검증하고, 음의 전이가 지속되면 제외한다.
 - Qwen3-30B 32k 결과는 truncation/degenerate repetition gate를 통과한 셀만 사용한다.
 - held-out entity group에서 isotonic/temperature calibration과 ECE를 보고한다.
 
 ### P4. hierarchical posterior
+
+상태: `scripts/evaluate_jailnews_pc2_full501.py`에 outcome-blind 외부 entity-language ×
+intent-method prior, leave-one-person-out population prior, 세 hurdle, PC2 graph residual,
+safety-gated Top-Two를 구현했다. 외부 prior 공식은 Qwen target judgment 0건 시점에
+동결했고 외부-only language/factorized baseline도 유지한다.
 
 - hurdle을 `P(non-refusal) × P(retained|non-refusal) × P(strict|retained)`로 분해한다.
 - person/context soft cluster, language, method, language×method random effect를 둔다.
