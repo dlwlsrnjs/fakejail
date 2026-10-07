@@ -1,0 +1,30 @@
+{
+  "schema": "fakejail_v5_full501_checkpoint_pointer/v1",
+  "captured_date_kst": "2026-10-07",
+  "status": "paused_by_user",
+  "completed_rows": 115499,
+  "expected_rows": 180360,
+  "remaining_rows": 64861,
+  "completion_percent": 64.03803504102905,
+  "github": {
+    "repo": "dlwlsrnjs/fakejail",
+    "code_and_protocol_commit": "b95deb758f9ea7714668e42eabb7d67308978b29"
+  },
+  "huggingface": {
+    "repo_id": "jin-kwon/fakejail-data",
+    "repo_type": "dataset",
+    "visibility": "private",
+    "revision": "4f779685e897ebadd835b816cf4ed03fef38234c",
+    "path": "run_checkpoints/v5_full501_360_pc2_20261006/canonical_en_checkpoint_115499",
+    "archive": {
+      "name": "canonical_en_generations_115499.tar.zst",
+      "bytes": 288110416,
+      "sha256": "0b886cc8857dbdb36b26526c9ec35a21caab6b594d795a0b1f182d9b78740232"
+    },
+    "generation_audit": {
+      "name": "generation_audit.json",
+      "bytes": 10548,
+      "sha256": "a35cba18cfa16547b1e35a8c9f91cd272ada076b5d5d5fe36e079d0d8cac9236"
+    }
+  }
+}

@@ -76,5 +76,28 @@ invalid 행은 삭제하거나 재생성하지 않았다. 사전등록 규칙대
 4. 기존 로그 보존이 필요하면 실행 스크립트의 로그를 새 timestamp 경로로 분리한다.
 5. 완료 전에는 judge·PC2·후속 ablation을 실행하지 않는다.
 
-Hugging Face의 정확한 경로와 revision은 업로드 완료 후 별도 checkpoint manifest에
-고정한다.
+## 비공개 Hugging Face 보존
+
+- Dataset: `jin-kwon/fakejail-data`
+- 경로: `run_checkpoints/v5_full501_360_pc2_20261006/canonical_en_checkpoint_115499/`
+- 고정 revision: `4f779685e897ebadd835b816cf4ed03fef38234c`
+- archive: `canonical_en_generations_115499.tar.zst`
+- archive 크기: 288,110,416 bytes
+- archive SHA-256: `0b886cc8857dbdb36b26526c9ec35a21caab6b594d795a0b1f182d9b78740232`
+- 원격 상태: private 확인
+
+접근 권한이 있는 계정으로 다음처럼 복원한다.
+
+```bash
+hf download jin-kwon/fakejail-data \
+  --repo-type dataset \
+  --revision 4f779685e897ebadd835b816cf4ed03fef38234c \
+  --include 'run_checkpoints/v5_full501_360_pc2_20261006/canonical_en_checkpoint_115499/**' \
+  --local-dir ./fakejail_private_checkpoint
+
+cd ./fakejail_private_checkpoint/run_checkpoints/v5_full501_360_pc2_20261006/canonical_en_checkpoint_115499
+sha256sum -c SHA256SUMS
+tar --zstd -xf canonical_en_generations_115499.tar.zst
+```
+
+기계 판독용 포인터는 `docs/V5_FULL501_CHECKPOINT_MANIFEST_2026-10-07.json`에 있다.

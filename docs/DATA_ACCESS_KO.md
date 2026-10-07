@@ -82,6 +82,20 @@ tar --zstd -xf paper_snapshot_v1/surrogate_llama.tar.zst
 복원된다. 일부 스크립트에는 과거 실행 환경의 `/home/ljk98/POLY` 기본값이 있으므로
 다른 환경에서는 CLI 경로 인자를 지정한다.
 
+## V5 full-501 partial checkpoint
+
+2026-10-07에 사용자 요청으로 일시정지한 canonical-English draw-0 generation은 기존
+`paper_snapshot_v1`을 변경하지 않고 별도 경로에 보존했다.
+
+- 경로: `run_checkpoints/v5_full501_360_pc2_20261006/canonical_en_checkpoint_115499/`
+- revision: `4f779685e897ebadd835b816cf4ed03fef38234c`
+- 완료: 115,499/180,360건(64.038%)
+- archive SHA-256: `0b886cc8857dbdb36b26526c9ec35a21caab6b594d795a0b1f182d9b78740232`
+
+실행 이력, invalid-output audit, shard별 체크섬과 복원 명령은
+[`V5_FULL501_CHECKPOINT_2026-10-07_KO.md`](V5_FULL501_CHECKPOINT_2026-10-07_KO.md)에
+있다. 이 체크포인트는 raw 생성물을 포함하므로 Dataset의 private 상태를 유지한다.
+
 ## 주의
 
 - 원시 파일에는 정치인 이름, 가짜뉴스 생성 지시, 모델 생성물과 판정 응답이 포함된다.
